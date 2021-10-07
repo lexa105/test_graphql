@@ -46,33 +46,11 @@ class Menu extends StatelessWidget {
             );
           }
 
-          List movies = result.data?["Movies"];
+          List movies = result.data?["movie_table"];
 
           int len = movies.length;
-          return RefreshIndicator(
-            onRefresh: () async {
-            await refetch?.call();
-          },
-          child: movies.length == 0 ?
-            ListView(
-              padding: EdgeInsets.only(left: 15, right: 15),
-              children: [
-                Container(
-                  padding: EdgeInsets.only(top: 300),
-                  child: Center(
-                    child: Text('No movies yet :(', style: TextStyle(color: Colors.amber),),
-                  ),
-                )
-              ],
-            )
-            : Container(
-              padding: EdgeInsets.only(left: 15, right: 15),
-              child: Center(
-                child: Text(movies.toString())
-              )
-              ),
-            );
-      
+          print(movies);
+          return Container();
         }
       ),
     );
